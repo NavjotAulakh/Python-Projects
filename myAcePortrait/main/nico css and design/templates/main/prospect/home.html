@@ -1,0 +1,89 @@
+{% include 'main/components/header.html' %}
+{% load staticfiles %}
+{% include 'main/components/hunter-navbar.html' %}
+<style>
+body {background-color: white;
+	  background-image: url({% static 'img/bg-pattern.png' %});}
+</style>
+<div class="container my-3 h-75">
+	<div class="row">
+		<div class="col-lg-12" style="background-color: white">
+			<h3>Prospect Bio</h3>
+			<table class="table table-hover">
+				<tr>
+					<th>Prospect Name</th>
+					<td>{{ profile.prospect.username }}</td>
+				</tr>
+				<tr>
+					<th>Prospect Email</th>
+					<td>{{ profile.prospect.email }}
+				</tr>
+				<tr>
+					<th>Prospect Bio</th>
+					<td><p>{{ profile.bio }}</p></td>
+				</tr>
+					<th>Prospect Github</th>
+					<td>{{ profile.github }}</td>
+				<tr>
+
+				</tr>
+			</table>
+
+			<h3>Education</h3>
+			<table class="table table-hover">
+			{% for edu in education %}
+				<tr>
+					<th>Institution</th>
+					<td>{{ edu.institution }}</td>
+				</tr>
+				<tr>
+					<th>Program</th>
+					<td>{{ edu.get_edu_type_display }} in {{ edu.edu_subject }}
+				</tr>
+				<tr>
+					<th>Start Date - End Date</th>
+					<td>{{ edu.start_date }} - {{ edu.end_date }}</td>
+				</tr>
+			{% endfor %}
+			</table>
+
+			<h3>Experience</h3>
+			<table class="table table-hover">
+			{% for exp in experience %}
+				<tr>
+					<th>Organization</th>
+					<td>{{ exp.name }}</td>
+				</tr>
+				<tr>
+					<th>Type</th>
+					<td>{{ exp.get_work_type_display }}</td>
+				</tr>
+				<tr>
+					<th>Position</th>
+					<td>{{ exp.position }}</td>
+				</tr>
+				<tr>
+					<th>Location</th>
+					<td>{{ exp.location }}</td>
+				</tr>
+				<tr>
+					<th>Start Date - End Date</th>
+					<td>{{ exp.start_date }} - {{ exp.end_date }}</td>
+				</tr>
+			{% endfor %}
+			</table>
+
+			<h3>Code Snippets</h3>
+			{% for snippet in snippets %}
+			<table class="table table-hover">
+				<tr>
+					<th>{{ snippet.snippet_name }}</th>
+				</tr>
+				<tr>
+					<td>{{ snippet.snippet_code }}</td>
+				</tr>
+			</table>
+			{% endfor %}
+		</div>
+	</div>
+</div>

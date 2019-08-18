@@ -1,0 +1,70 @@
+<!-- Hunter Home -->
+{% include 'main/components/header.html' %}
+{% load staticfiles %}
+{% include 'main/components/hunter-navbar.html' %}
+<style>
+body {background-color: white;
+	  background-image: url({% static 'img/bg-pattern.png' %});}
+</style>
+<div class="container my-3 h-75">
+	<div class="row">
+		<div class="container col-12" style="background-color: white">
+			<form class="form-inline my-2 my-lg-1">
+		        <input
+		            class="form-control mr-sm-2"
+		            type="search"
+		            placeholder="Search"
+		            aria-label="Search"
+		            name='search'
+		            value="{{search_term}}">
+		    	<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		    </form>
+		</div>
+		<div class="col-12" style="background-color: white">
+{% for prospect in prospects %}
+{% for profile in prospect_profiles %}
+{% if prospect.user == profile.prospect %}
+<table class="table table-hover mt-5">
+	<tr>
+		<th>Prospect</th>
+		<td>{{ prospect.user.username }}</td>
+	</tr>
+	<tr>
+		<th>Prospect Bio</th>
+		<td>{{ profile.bio }}</td>
+	</tr>
+	<tr>
+		<th>Prospect Skills</th>
+		<td>{{ profile.skills }}</td>
+	</tr>
+	<tr>
+		<th>Prospect Github</th>
+		<td>{{ profile.github }}</td>
+	</tr>
+	<tr>
+		<th>Prospect Likes</th>
+		<td>{{ profile.total_likes }}</td>
+		<th>
+			<a href="#" onClick="document.getElementById('likebutton').submit()">Like</a>
+			|<a href="#" onClick="document.getElementById('dislikebutton').submit()">Dislike</a>
+			
+			<form id="likebutton" method="POST" action="/h/prospect/{{ prospect.user.pk }}/like">
+				{% csrf_token %}
+				<input type="hidden">
+			</form>
+
+			<form id="dislikebutton" method="POST" action="/h/prospect/{{ prospect.user.pk }}/dislike">
+				{% csrf_token %}
+				<input type="hidden">
+			</form>
+
+		</th>
+	</tr>
+</table>
+<a class="btn btn-dark text-light mt-3 w-100" href="/h/prospect/{{ prospect.user.pk }}">View {{ prospect.user.username }}</a>
+{% endif %}
+{% endfor %}
+{% endfor %}
+		</div>
+	</div>
+</div>

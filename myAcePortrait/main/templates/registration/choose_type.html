@@ -1,0 +1,63 @@
+{% include 'main/components/header.html' %}
+{% load staticfiles %}
+{% include 'main/components/hunter-navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title><table><td>myAcePortrait</td><td><a href="/accounts/login" class="btn btn-outline btn-xl js-scroll-trigger">Login!</a></td></table><</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+.mySlides {display:none;}
+</style>
+
+<style>
+body {background-color: white;
+	  background-image: url({% static 'img/bg-pattern.png' %});}
+</style>
+
+
+     <!-- Custom fonts for this template -->
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{%static 'vendor/simple-line-icons/css/simple-line-icons.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="{% static 'device-mockups/device-mockups.min.css' %}">
+    <link rel="stylesheet" href="{% static 'register.css' %}">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/new-age.css' %}" rel="stylesheet">
+
+  </head>
+
+
+  <div class="container my-3 h-75">
+	<div class="row">
+		<div class="col-12"   style="background-color: white">
+			<h3>User Type</h3>
+			<p>Select the type of user you will be classified as</p>
+			<form method="POST">
+				{% csrf_token %}
+				<div class="form-group form-row">
+					<label>Type: </label>
+					{{ form.user_type }}
+				</div>
+				<button type="submit" class="btn btn-dark text-light">Submit</button>
+			</form>
+		</div>
+	</div>
+</div>
+  </body>
+</html>

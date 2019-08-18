@@ -1,0 +1,173 @@
+{% include 'main/components/header.html' %}
+{% include 'main/components/hunter-navbar.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Storing.io</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+.mySlides {display:none;}
+</style>
+
+    <!-- Custom fonts for this template -->
+    <link href="{% static '/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'vendor/simple-line-icons/css/simple-line-icons.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="{% static 'device-mockups/device-mockups.min.css' %}">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/new-age.css' %}" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top">
+
+    <div>
+      <?php
+        require 'navbar.php';
+      ?>
+    </div>
+
+    <header class="masthead">
+      <div class="container h-100">
+        <div class="row h-100">
+          <div class="col-lg-7 my-auto">
+            <div class="header-content mx-auto">
+              <h1 class="mb-5">MyACEPortrait <br><br> Get yourself known to be hunted by jobs!</h1>
+            </div>
+          </div>
+          <div class="col-lg-5 my-auto">
+            <img class="mySlides w3-animate-fading" src="{% static 'img/hire.jpg' %}" style="width:170%; border-radius: 30px;">
+            <img class="mySlides w3-animate-fading" src="{% static 'img/job.png' %}" style="width:170%; border-radius: 30px;">
+            <img class="mySlides w3-animate-fading" src="{% static 'img/hire2.jpg' %}" style="width:170%; border-radius: 30px;">
+          </div>
+
+          <script>
+            var myIndex = 0;
+            carousel();
+
+            function carousel() {
+              var i;
+              var x = document.getElementsByClassName("mySlides");
+              for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+              }
+              myIndex++;
+              if (myIndex > x.length) {myIndex = 1}
+              x[myIndex-1].style.display = "block";
+              setTimeout(carousel, 8000);
+            }
+          </script>
+    </header>
+
+    <section class="register" id="register">
+      <div class="container">
+        <div class="section-heading text-center">
+          <h2> Are you a student? <br> Let hunters contact you easier ! <br> </h2>
+		  <h2> OR </h2>
+		  <h2> Are you a Hunter? <br>Find your suitable students for your project or business!</h2>
+          <p class="text-muted">Register for Free!</p>
+          <hr>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 my-auto">
+              <img src="{% static 'img/save.jpg' %}" class="img-fluid" style="width:90%"  alt="">
+          </div>
+          <div class="col-lg-8 my-auto">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="feature-item">
+                    <h3>Students</h3>
+                    <p class="text-muted">Create your profile simple and easy to be found</p>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="feature-item">
+                    <h3>Hunter</h3>
+                    <p class="text-muted">Find students for every expertise of your business!</p>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="feature-item">
+                    <h3> Guaranteed fast finder job online</h3>
+                    <p class="text-muted">  Save your time looking other websites!</p>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="feature-item">
+                    <h3>Select multiple students and easy contact</h3>
+                    <p class="text-muted"> Online chatter to be contacted</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="cta-content">
+        <div class="container">
+          <h3>Do not waste your time looking for more.</h3>
+          <a href="/accounts/signup" class="btn btn-outline btn-xl js-scroll-trigger">Sign Up Now!!</a>
+        </div>
+      </div>
+      <div class="overlay"></div>
+    </section>
+
+    <section class="login bg-primary" id="login">
+      <div class="container">
+        <h2>Already a member?</h2>
+        <a href="/accounts/login" class="btn btn-outline btn-xl js-scroll-trigger">Login!</a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>&copy; myaceportrait.tk 2019. All Rights Reserved.</p>
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <a href="#">Privacy</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">Terms</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">FAQ</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="{% static 'js/new-age.min.js' %}"></script>
+
+  </body>
+
+</html>

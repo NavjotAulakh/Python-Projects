@@ -1,0 +1,125 @@
+{% include 'main/components/header.html' %}
+{% load staticfiles %}
+{% include 'main/components/hunter-navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>myAcePortrait</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+.mySlides {display:none;}
+</style>
+
+<style>
+body {background-color: white;
+	  background-image: url({% static 'img/bg-pattern.png' %});}
+</style>
+
+<style>
+input[type=submit], input[type=] {
+  height:30px;
+  width:100px;
+  background:#fff;
+  border:1px solid #f2f2f2;
+  border-radius:20px;
+  color: slategrey;
+  text-transform:uppercase;
+  font-family: 'Ubuntu', sans-serif;
+  cursor:pointer;
+}
+</style>
+
+
+    <!-- Custom fonts for this template -->
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'vendor/simple-line-icons/css/simple-line-icons.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="{% static 'device-mockups/device-mockups.min.css' %}">
+    <link rel="stylesheet" href="{% static 'register.css' %}">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/new-age.css' %}" rel="stylesheet">
+
+  </head>
+
+
+<div class="container my-5 h-75" style="background-color: white">
+	<div class="row" >
+		<div class="col-12">
+			<form method="POST">
+				{% csrf_token %}
+				{{ form.non_field_errors }}
+				<div class="form-group form-row">
+					{{ form.username.errors }}
+					<label class="col-4">Username</label>
+					{{ form.username }}
+				</div>
+				<div class="form-group form-row">
+					{{ form.first_name.errors }}
+					<label class="col-4">First Name</label>
+					{{ form.first_name }}
+				</div>
+				<div class="form-group form-row">
+					{{ form.last_name.errors }}
+					<label class="col-4">Last Name</label>
+					{{ form.last_name }}
+				</div>
+				<div class="form-group form-row">
+					{{ form.email.errors }}
+					<label class="col-4">Email</label>
+					{{ form.email }}
+				</div>
+				<div class="form-group form-row">
+					{{ form.password1.errors }}
+					<label class="col-4">Password</label>
+					{{ form.password1 }}
+				</div>
+				<div class="form-group form-row">
+					<ul>
+						<li>Your password can't be too similar to your other personal information.</li>
+						<li>Your password must contain at least 8 characters.</li>
+						<li>Your password can't be a commonly used password</li>
+						<li>Your password can't be entirely numeric</li>
+					</ul>
+				</div>
+				<div class="form-group form-row">
+					{{ form.password2.errors }}
+					<label class="col-4">Password</label>
+					{{ form.password2 }}
+				</div>
+				<button type="submit" class="btn btn-dark w-100">Submit</button>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="{% static 'js/new-age.min.js' %}"></script>
+
+
+
+
+  </body>
+</html>

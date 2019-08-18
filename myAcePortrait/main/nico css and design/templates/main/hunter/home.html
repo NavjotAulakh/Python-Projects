@@ -1,0 +1,35 @@
+<!-- Hunter Home -->
+{% include 'main/components/header.html' %}
+{% load staticfiles %}
+{% include 'main/components/hunter-navbar.html' %}
+<style>
+body {background-color: white;
+	  background-image: url({% static 'img/bg-pattern.png' %});}
+</style>
+<div class="container my-3 h-75">
+	<div class="row">
+		<div class="col-12"   style="background-color: white">
+{% for prospect in prospects %}
+<table class="table table-hover mt-5">
+	<tr>
+		<th>Prospect</th>
+		<td>{{ prospect.user.username }}</td>
+	</tr>
+{% for profile in prospect_profiles %}
+{% if prospect.user == profile.prospect %}
+	<tr>
+		<th>Prospect Bio</th>
+		<td>{{ profile.bio }}</td>
+	</tr>
+	<tr>
+		<th>Prospect Github</th>
+		<td>{{ profile.github }}</td>
+	</tr>
+{% endif %}
+{% endfor %}
+</table>
+<a class="btn btn-dark text-light mt-3 w-100" href="/h/prospect/{{ prospect.user.pk }}">View {{ prospect.user.username }}</a>
+{% endfor %}
+		</div>
+	</div>
+</div>

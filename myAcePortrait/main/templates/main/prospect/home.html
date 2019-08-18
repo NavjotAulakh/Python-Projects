@@ -1,0 +1,125 @@
+{% include 'main/components/header.html' %}
+{% load staticfiles %}
+{% include 'main/components/hunter-navbar.html' %}
+<style>
+body {background-color: white;
+	  background-image: url({% static 'img/bg-pattern.png' %});}
+</style>
+<div class="container my-3 h-75">
+	<div class="row">
+		<div class="col-lg-12" style="background-color: white">
+			<h3>Prospect Bio</h3>
+			<table class="table table-hover">
+				<tr>
+					<th>Prospect Name</th>
+					<td>{{ profile.prospect.username }}</td>
+				</tr>
+				<tr>
+					<th>Prospect Email</th>
+					<td>{{ profile.prospect.email }}
+				</tr>
+				<tr>
+					<th>Prospect Bio</th>
+					<td><p>{{ profile.bio }}</p></td>
+				<tr>
+				</tr>
+					<th>Prospect Skills</th>
+					<td><p>{{ profile.skills }}</p></td>
+				</tr>
+				<tr>
+					<th>Prospect Github</th>
+					<td>{{ profile.github }}</td>
+				</tr>
+				<tr>
+					<th>Prospect Likes</th>
+					<td>{{ profile.total_likes }}</td>
+				</tr>
+				<tr>
+
+				</tr>
+			</table>
+
+			<a class="btn btn-dark text-light my-3" href="/p/profile/edit">Edit Profile</a>
+
+			<h3>Education</h3>
+			{% if education %}
+				{% for edu in education %}
+			<table class="table table-hover">
+				<tr>
+					<th>Institution</th>
+					<td>{{ edu.institution }}</td>
+				</tr>
+				<tr>
+					<th>Program</th>
+					<td>{{ edu.get_edu_type_display }} in {{ edu.edu_subject }}
+				</tr>
+				<tr>
+					<th>Start Date - End Date</th>
+					<td>{{ edu.start_date }} - {{ edu.end_date }}</td>
+				</tr>
+			</table>
+			<a class="btn btn-dark text-light my-3" href="/p/snippet/edit/{{ edu.pk }}">Edit {{ edu.institution }}</a>
+			<a class="btn btn-danger text-light my-3" href="/p/snippet/remove/{{ edu.pk }}">Remove {{ edu.institution }}</a>
+				{% endfor %}
+			{% else %}
+			<p>No Education has been added to this profile.</p>
+			{% endif %}
+
+			<br><a class="btn btn-dark text-light my-3" href="/p/education/add">Add Education</a>
+
+			<h3>Experience</h3>
+			{% if experience %}
+				{% for exp in experience %}
+			<table class="table table-hover">
+				<tr>
+					<th>Organization</th>
+					<td>{{ exp.name }}</td>
+				</tr>
+				<tr>
+					<th>Type</th>
+					<td>{{ exp.get_work_type_display }}</td>
+				</tr>
+				<tr>
+					<th>Position</th>
+					<td>{{ exp.position }}</td>
+				</tr>
+				<tr>
+					<th>Location</th>
+					<td>{{ exp.location }}</td>
+				</tr>
+				<tr>
+					<th>Start Date - End Date</th>
+					<td>{{ exp.start_date }} - {{ exp.end_date }}</td>
+				</tr>
+			</table>
+			<a class="btn btn-dark text-light my-3" href="/p/snippet/edit/{{ exp.pk }}">Edit {{ exp.name }}</a>
+			<a class="btn btn-danger text-light my-3" href="/p/snippet/remove/{{ exp.pk }}">Remove {{ exp.name }}</a>
+				{% endfor %}
+			{% else %}
+			<p>No Experience has been added to this profile.</p>
+			{% endif %}
+
+			<br><a class="btn btn-dark text-light my-3" href="/p/experience/add">Add Experience</a>
+
+			<h3>Code Snippets</h3>
+			{% if snippets %}
+				{% for snippet in snippets %}
+			<table class="table table-hover">
+				<tr>
+					<th>{{ snippet.snippet_name }}</th>
+				</tr>
+				<tr>
+					<td style="white-space:pre">{{ snippet.snippet_code }}</td>
+				</tr>
+			</table>
+			<a class="btn btn-dark text-light my-3" href="/p/snippet/edit/{{ snippet.pk }}">Edit {{ snippet.snippet_name }}</a>
+			<a class="btn btn-danger text-light my-3" href="/p/snippet/remove/{{ snippet.pk }}">Remove {{ snippet.snippet_name }}</a>
+				{% endfor %}
+			{% else %}
+			<p>No Code Snippets have been added to this profile.</p>
+			{% endif %}
+
+			<br><a class="btn btn-dark text-light my-3" href="/p/snippet/add">Add Code Snippet</a>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,21 @@
+{% include 'main/components/header.html' %}
+
+{% include 'main/components/hunter-navbar.html' %}
+
+<div class="container my-3 h-75">
+	<div class="row">
+		<div class="col-12">
+			<h3>Message</h3>
+			<form method="POST">
+				{% csrf_token %}
+				{{ form.non_field_errors }}
+				<div class="form-group form-row">
+					<label class="col-4">Message</label>
+					{{ form.message }}
+					{{ form.message.errors }}
+				</div>
+				<button type="submit" class="btn btn-dark text-light w-100">Submit</button>
+			</form>
+		</div>
+	</div>
+</div>

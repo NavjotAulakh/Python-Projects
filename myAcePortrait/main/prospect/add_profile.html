@@ -1,0 +1,33 @@
+{% include 'main/components/header.html' %}
+{% load staticfiles %}
+{% include 'main/components/hunter-navbar.html' %}
+<style>
+body {background-color: white;
+	  background-image: url({% static 'img/bg-pattern.png' %});}
+</style>
+<div class="container my-3 h-75">
+	<div class="row">
+		<div class="col-12" style="background-color: white">
+			<form method="POST">
+				{% csrf_token %}
+				{{ form.non_field_errors }}
+				<div class="form-group form-row">
+					<label class="col-4">Github/Portfolio Link</label>
+					{{ form.github }}
+					{{ form.github.errors }}	
+				</div>
+				<div class="form-group form-row">
+					<label class="col-4">Bio</label>
+					{{ form.bio }}
+					{{ form.bio.errors }}
+				</div>
+				<div class="form-group form-row">
+					<label class="col-4">Skills</label>
+					{{ form.skills }}
+					{{ form.skills.errors }}
+				</div>
+				<button class="btn btn-dark text-light w-100">Submit</button>
+			</form>
+		</div>
+	</div>
+</div>

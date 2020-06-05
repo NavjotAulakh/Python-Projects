@@ -16,7 +16,7 @@ configobj==5.0.6
 constantly==15.1.0
 cryptography==1.2.3
 daphne==2.2.4
-Django==2.1.5
+Django==2.2.13
 django-crispy-forms==1.7.2
 h11==0.8.1
 hiredis==1.0.0

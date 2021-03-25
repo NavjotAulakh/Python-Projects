@@ -44,7 +44,7 @@ python-apt==1.1.0b1+ubuntu0.16.4.2
 python-debian==0.1.27
 python-systemd==231
 pytz==2018.9
-PyYAML==3.11
+PyYAML==5.4
 redis==2.10.6
 requests==2.9.1
 schedule==0.6.0

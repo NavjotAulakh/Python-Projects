@@ -55,7 +55,7 @@ Twisted==18.9.0
 txaio==18.8.1
 ufw==0.35
 unattended-upgrades==0.1
-urllib3==1.13.1
+urllib3==1.26.5
 uvicorn==0.3.30
 uvloop==0.12.0
 uWSGI==2.0.17.1

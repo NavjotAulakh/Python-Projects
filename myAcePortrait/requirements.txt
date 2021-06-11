@@ -62,5 +62,5 @@ uWSGI==2.0.17.1
 virtualenv==16.2.0
 virtualenv-clone==0.4.0
 virtualenvwrapper==4.8.2
-websockets==7.0
+websockets==9.1
 zope.interface==4.6.0
